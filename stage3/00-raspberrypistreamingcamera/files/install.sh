@@ -5,7 +5,7 @@ touch /boot/ssh
 
 # Update System and install nessesary and usefull packages
 apt-get update -y && apt-get -y dist-upgrade
-apt-get install -y vim bash bash-completion zsh grml-zsh-config avahi nss-mdns wpa_supplicant termite-terminfo console-common less 
+apt-get install -y vim bash bash-completion zsh grml-zsh-config avahi nss-mdns wpa_supplicant termite-terminfo console-common less
 
 # install interfaces file
 cp interfaces /etc/network/
@@ -16,7 +16,7 @@ cp interfaces /etc/network/
 
 # Install UV4L components - Add the supplier's repository key to our key database
 curl http://www.linux-projects.org/listing/uv4l_repo/lrkey.asc | apt-key add -
-echo "deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ jessie main" > /etc/apt/sources.list.d/uv4l.list
+echo "deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ bullseye main" > /etc/apt/sources.list.d/uv4l.list
 apt-get update
 
 # Install UV4L components - Now fetch and install the required modules.
@@ -43,7 +43,7 @@ make CPPFLAGS=-DALLOW_RTSP_SERVER_PORT_REUSE=1 install
 cd ..
 
 # Install the RTSP server - clone the rtsp server's git repository, compile and install
-apt-get -y install git 
+apt-get -y install git
 git clone https://github.com/mpromonet/v4l2rtspserver.git
 apt-get install -y libasound2-dev liblog4cpp5-dev
 cd v4l2rtspserver
